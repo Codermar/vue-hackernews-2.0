@@ -2,16 +2,11 @@
   <div id="app">
     <header class="header">
       <nav class="inner">
-        <router-link to="/" exact>
-          <img class="logo" src="~public/logo-48.png" alt="logo">
-        </router-link>
-        <router-link to="/top">Top</router-link>
-        <router-link to="/new">New</router-link>
-        <router-link to="/show">Show</router-link>
-        <router-link to="/ask">Ask</router-link>
-        <router-link to="/job">Jobs</router-link>
+        <router-link to="/" exact>start</router-link>
+        <!--<router-link to="/" exact><i class="fa fa-apple fa-lg" aria-hidden="true"></i></router-link>-->
+
         <a class="github" href="https://github.com/vuejs/vue-hackernews-2.0" target="_blank" rel="noopener">
-          Built with Vue.js
+          logout
         </a>
       </nav>
     </header>
@@ -36,7 +31,7 @@ a
   text-decoration none
 
 .header
-  background-color #ff6600
+  background-color #333333
   position fixed
   z-index 999
   height 55px
