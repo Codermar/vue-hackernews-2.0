@@ -1,6 +1,6 @@
 {
-  "name": "Vue Hackernews 2.0",
-  "short_name": "Vue HN",
+  "name": "Narwhal Moderation 2.0",
+  "short_name": "NW_MOD",
   "icons": [{
       "src": "/public/logo-120.png",
       "sizes": "120x120",

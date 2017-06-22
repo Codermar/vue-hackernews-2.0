@@ -15,7 +15,7 @@ export function createRouter () {
     mode: 'history',
     scrollBehavior: () => ({ y: 0 }),
     routes: [
-      { path: '/news/dashboard', component: Dashboard },
+      { path: '/dashboard', component: Dashboard },
       { path: '/news/top/:page(\\d+)?', component: createListView('top') },
       { path: '/news/new/:page(\\d+)?', component: createListView('new') },
       { path: '/news/show/:page(\\d+)?', component: createListView('show') },
