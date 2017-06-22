@@ -4,8 +4,8 @@
       <nav class="inner">
         <router-link to="/" class="apple-logo" exact></router-link>
         <router-link to="/moderation/queue">Moderation</router-link>
-        <router-link to="/moderation/queue">Escalation</router-link>
-        <router-link class="right-nav" to="/news/top" exact>o</router-link>
+        <router-link to="/escalation/queue">Escalation</router-link>
+        <router-link class="right-nav" to="/news/top" exact>Samples</router-link>
       </nav>
     </header>
     <transition name="fade" mode="out-in">
@@ -35,7 +35,7 @@
     background-color white
     margin 0
     padding-top 55px
-    color #34495e
+    color #333333
     overflow-y scroll
 
   .apple-logo

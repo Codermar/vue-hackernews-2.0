@@ -1,15 +1,39 @@
 <template>
-    <div class="dash-body">
-      <h1 class="typography-elevated-headline"><i
-          class="fa fa-apple" aria-hidden="true"></i>dashboard</h1>
-    </div>
+  <main class="dash-body">
+
+    <div class="nw-dashboard-header"><h1><img
+        src="/public/narwhal-icon.png" height="63" alt="Narwhal Moderation"> {{ title }}</h1>
+      <h2>Hello, Jose Alfonso</h2>
+      <p><strong>Last Login:</strong> 3/23/16 5:47 PM</p></div>
+
+  </main>
 </template>
 
 <style lang="stylus" scoped>
   .dash-body
-    /*margin 2px*/
-    /*border 1px solid #808080*/
-    padding 5px
-    /*max-width inherit*/
+    padding .5em
 
+  .nw-dashboard-header
+    text-align center
+    h1
+      font-size: 3.6em;
+      margin-bottom: 0;
+      font-weight: normal;
+    img
+      vertical-align: middle
 </style>
+
+<script>
+
+  export default {
+    name: 'dashboard',
+
+    data() {
+      return {
+        title: 'Narwhal Moderation 2.0'
+      }
+    },
+
+  }
+
+</script>

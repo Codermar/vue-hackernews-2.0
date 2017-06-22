@@ -1,6 +1,5 @@
 import Vue from 'vue'
 import Router from 'vue-router'
-// import Dashboard from '../views/Dashboard'
 
 Vue.use(Router)
 
@@ -9,6 +8,7 @@ const createListView = id => () => import('../views/CreateListView').then(m => m
 const ItemView = () => import('../views/ItemView.vue')
 const UserView = () => import('../views/UserView.vue')
 const Dashboard = () => import('../views/Dashboard.vue')
+const Escalation = () => import('../views/Escalation.vue')
 
 export function createRouter () {
   return new Router({
@@ -16,6 +16,7 @@ export function createRouter () {
     scrollBehavior: () => ({ y: 0 }),
     routes: [
       { path: '/dashboard', component: Dashboard },
+      { path: '/escalation/queue', component: Escalation },
       { path: '/news/top/:page(\\d+)?', component: createListView('top') },
       { path: '/news/new/:page(\\d+)?', component: createListView('new') },
       { path: '/news/show/:page(\\d+)?', component: createListView('show') },
