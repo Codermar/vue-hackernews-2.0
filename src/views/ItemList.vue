@@ -12,6 +12,7 @@
       <span>{{ page }}/{{ maxPage }}</span>
       <router-link v-if="hasMore" :to="'/news/' + type + '/' + (page + 1)">more &gt;</router-link>
       <a v-else class="disabled">more &gt;</a>
+
     </div>
     <transition :name="transition">
       <div class="news-list" :key="displayedPage" v-if="displayedPage > 0">
@@ -52,6 +53,7 @@ export default {
       return Number(this.$store.state.route.params.page) || 1
     },
     maxPage () {
+      console.log('::::: ', this.type);
       const { itemsPerPage, lists } = this.$store.state
       return Math.ceil(lists[this.type].length / itemsPerPage)
     },

@@ -19,6 +19,20 @@ export function createStore () {
         show: [],
         ask: [],
         job: []
+      },
+      moderation: {
+        user: { /* User */ },
+        users: { /* [id: string]: User */ },
+        admins: [/* [id: string] */],
+        escalatedPosts: [/* [id: string] */],
+        managers: [/* [id: string] */],
+        moderators: [/* [id: string] */],
+        posts: { /* [id: string]: Post */ },
+        powerUsers: [/* [id: string] */], // This added because in the future they may want to integrate moderation privileges to power users
+        problemUsers: [/* [id: string] */],
+        resources: [], // TODO: structure TBD. These are routes, menus or actions granted to user (see mock-two.js)
+        queue: { /* Post */ }, // The Post assigned to this user
+        queueStatus: { /* moderationQueueItems: number, escalationQueueItems: number */ },
       }
     },
     actions,

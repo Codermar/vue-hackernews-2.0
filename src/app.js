@@ -5,7 +5,11 @@ import { createRouter } from './router'
 import { sync } from 'vuex-router-sync'
 import titleMixin from './util/title'
 import * as filters from './util/filters'
+// import Vuetify from 'vuetify'
+
 // import 'font-awesome/css/font-awesome.css'
+
+// Vue.use(Vuetify)
 
 // mixin for handling title
 Vue.mixin(titleMixin)

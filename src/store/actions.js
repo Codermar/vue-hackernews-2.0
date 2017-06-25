@@ -45,5 +45,9 @@ export default {
     return state.users[id]
       ? Promise.resolve(state.users[id])
       : fetchUser(id).then(user => commit('SET_USER', { id, user }))
+  },
+
+  FETCH_ESCALATION_QUEUE: () => {
+    return [];
   }
 }

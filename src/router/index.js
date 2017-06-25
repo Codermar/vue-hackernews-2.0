@@ -17,6 +17,7 @@ export function createRouter () {
     routes: [
       { path: '/dashboard', component: Dashboard },
       { path: '/escalation/queue', component: Escalation },
+
       { path: '/news/top/:page(\\d+)?', component: createListView('top') },
       { path: '/news/new/:page(\\d+)?', component: createListView('new') },
       { path: '/news/show/:page(\\d+)?', component: createListView('show') },
