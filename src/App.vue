@@ -1,46 +1,112 @@
-<!--
-
 <template>
-  <v-toolbar class="purple" light>
-    <v-toolbar-side-icon light></v-toolbar-side-icon>
-    <v-toolbar-title class="hidden-sm-and-down">Toolbar</v-toolbar-title>
-    <v-toolbar-items>
-      <v-toolbar-item>Home</v-toolbar-item>
-      <v-toolbar-item>Contact</v-toolbar-item>
-      <v-menu top left offset-y origin="bottom right" transition="v-slide-y-transition">
-        <v-btn icon light slot="activator">
-          <v-icon>more_vert</v-icon>
+
+  <v-app id="app">
+    <v-navigation-drawer persistent v-model="drawer" light enable-resize-watcher>
+      <v-list dense>
+        <v-list-item>
+          <v-list-tile @click.native.stop="left = !left">
+            <v-list-tile-action>
+              <v-icon>exit_to_app</v-icon>
+            </v-list-tile-action>
+            <v-list-tile-content>
+              <v-list-tile-title>Open Temporary Drawer</v-list-tile-title>
+            </v-list-tile-content>
+          </v-list-tile>
+        </v-list-item>
+      </v-list>
+    </v-navigation-drawer>
+
+
+    <v-toolbar class="black" light>
+      <v-toolbar-side-icon light></v-toolbar-side-icon>
+      <v-toolbar-title class="hidden-sm-and-down">Toolbar</v-toolbar-title>
+      <v-toolbar-items>
+        <v-btn-dropdown v-bind:options="dropdownMenu" max-height="auto" overflow></v-btn-dropdown>
+        <v-toolbar-item router-link to="/escalation/queue">
+          Escalation Queue
+        </v-toolbar-item>
+        <v-toolbar-item><v-btn light icon>Metrics<v-icon>view_module</v-icon></v-btn></v-toolbar-item>
+        <v-menu bottom left offset-y origin="bottom right" transition="v-slide-y-transition">
+          <v-btn icon light slot="activator">
+            <v-icon>more_vert</v-icon>
+          </v-btn>
+
+          <v-list>
+            <v-list-item v-for="(item, index) in items" v-bind:key="item.title">
+              <v-list-tile ripple>
+                <v-list-tile-content>
+                  <v-list-tile-title>{{ item.title }}</v-list-tile-title>
+                </v-list-tile-content>
+
+                <div class="text-xs list__tile">
+                  <span v-badge="{ value: 12 }" v-if="item.badge" class="red--after"></span>
+                </div>
+
+              </v-list-tile>
+              <v-divider v-if="index + 1 < items.length"></v-divider>
+            </v-list-item>
+          </v-list>
+
+<!--
+          <v-list>
+            <v-list-item v-for="item in items" v-bind:key="item.title">
+              <v-list-tile avatar>
+
+                <v-list-tile-content>
+                  <v-list-tile-title><span v-badge="{ value: 12 }">{{ item.title }}</span></v-list-tile-title>
+                  &lt;!&ndash;<v-list-tile-sub-title>{{ item.subtitle }}</v-list-tile-sub-title>&ndash;&gt;
+                </v-list-tile-content>
+
+                <v-list-tile-action>
+                  <v-btn icon ripple>
+                    <v-icon class="grey&#45;&#45;text text&#45;&#45;lighten-1">info</v-icon>
+                  </v-btn>
+                </v-list-tile-action>
+
+              </v-list-tile>
+            </v-list-item>
+
+          </v-list>
+          -->
+
+        </v-menu>
+
+        <v-btn icon light>
+          <v-icon>account_circle</v-icon>
         </v-btn>
-        <v-list>
-          <v-list-item v-for="item in items" :key="item">
-            <v-list-tile>
-              <v-list-tile-title v-text="item.title"></v-list-tile-title>
-            </v-list-tile>
-          </v-list-item>
-        </v-list>
-      </v-menu>
-    </v-toolbar-items>
-  </v-toolbar>
-</template>
+
+      </v-toolbar-items>
+    </v-toolbar>
+
+    <main>
+      <v-navigation-drawer temporary v-model="left"></v-navigation-drawer>
+      <v-container fluid>
+        <router-view></router-view>
+      </v-container>
+      <v-navigation-drawer right temporary v-model="right"></v-navigation-drawer>
+    </main>
+
+    <v-footer class="grey">
+      <span>© 2017</span>
+    </v-footer>
+
+  </v-app>
+
+  <!--
+<header class="header">
+  <nav class="inner">
+    <router-link to="/" class="apple-logo" exact></router-link>
+    <router-link to="/moderation/queue">Moderation</router-link>
+    <router-link to="/escalation/queue">Escalation</router-link>
+    <router-link class="right-nav" to="/news/top" exact>Samples</router-link>
+  </nav>
+</header>
 -->
 
 
-<template>
-  <div id="app">
-    <header class="header">
-      <nav class="inner">
-        <router-link to="/" class="apple-logo" exact></router-link>
-        <router-link to="/moderation/queue">Moderation</router-link>
-        <router-link to="/escalation/queue">Escalation</router-link>
-        <router-link class="right-nav" to="/news/top" exact>Samples</router-link>
-      </nav>
-    </header>
-    <transition name="fade" mode="out-in">
-      <router-view class="view"></router-view>
-    </transition>
-  </div>
 </template>
 
+<!--
 
 <style lang="stylus">
 
@@ -62,7 +128,7 @@
     /* background-color lighten(#eceef1, 30%) */
     background-color white
     margin 0
-    padding-top 55px
+    /*padding-top 55px*/
     color #333333
     overflow-y scroll
 
@@ -77,7 +143,7 @@
     background-color #333333
     position fixed
     z-index 999
-    height 55px
+    /*height 55px*/
     top 0
     left 0
     right 0
@@ -125,7 +191,7 @@
   .fade-enter, .fade-leave-active
     opacity 0
 
-  @media (max-width 860px)
+  @media (max-width 980px)
     .header .inner
       padding 15px 30px
 
@@ -138,3 +204,33 @@
       .github
         display none
 </style>
+-->
+
+<style lang="stylus">
+  .btn
+    text-transform: none;
+</style>
+
+<script>
+  export default {
+    data () {
+      return {
+        items: [
+          { title: 'Moderation Queue', avatar: '/public/messi-avatar.png', action: 'temp' },
+          { title: 'Escalation Queue', avatar: '/public/messi-avatar2.png', badge: true },
+          { title: 'Preferences', avatar: '/public/messi-avatar3.png' }
+        ],
+        drawer: false,
+        drawerRight: false,
+        right: null,
+        left: null,
+        dropdownMenu: [
+          { text: 'Arial' },
+          { text: 'Calibri' },
+          { text: 'Courier' },
+          { text: 'Verdana' }
+        ]
+      }
+    }
+  }
+</script>

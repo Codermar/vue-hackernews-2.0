@@ -16,9 +16,11 @@
   .nw-dashboard-header
     text-align center
     h1
-      font-size: 3.6em;
-      margin-bottom: 0;
-      font-weight: normal;
+      font-size: 3.6em
+      margin-bottom: 0
+      font-weight: normal
+    h2
+      font-size 2em
     img
       vertical-align: middle
 </style>
