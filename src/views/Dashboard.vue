@@ -4,7 +4,7 @@
     <div class="nw-dashboard-header"><h1><img
         src="/public/narwhal-icon.png" height="63" alt="Narwhal Moderation"> {{ title }}</h1>
       <h2>Hello, Jose Alfonso</h2>
-      <p><strong>Last Login:</strong> 3/23/16 5:47 PM</p></div>
+      <p><strong>Last Login:</strong> 6/23/17 5:47 PM</p></div>
 
   </main>
 </template>
@@ -29,6 +29,10 @@
 
   export default {
     name: 'dashboard',
+
+    asyncData(store) {
+      console.log(':::::asyncData: dashboard....');
+    },
 
     data() {
       return {

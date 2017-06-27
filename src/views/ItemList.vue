@@ -1,5 +1,5 @@
 <template>
-  <div class="news-view">
+  <v-layout column role="main" class="news-view">
     <div class="news-list-nav">
       <router-link to="/news/top">Top</router-link>
       <router-link to="/news/new">New</router-link>
@@ -22,7 +22,7 @@
         </transition-group>
       </div>
     </transition>
-  </div>
+  </v-layout>
 </template>
 
 <script>
@@ -108,6 +108,7 @@ export default {
 </script>
 
 <style lang="stylus">
+
 .news-view
   padding-top 45px
 

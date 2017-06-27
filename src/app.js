@@ -14,6 +14,8 @@ Vue.use(Vuetify)
 // mixin for handling title
 Vue.mixin(titleMixin)
 
+Vue.config.productionTip = false
+
 // register global utility filters.
 Object.keys(filters).forEach(key => {
   Vue.filter(key, filters[key])

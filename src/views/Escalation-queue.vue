@@ -1,5 +1,5 @@
 <template>
-  <main>
+  <v-layout column role="main">
     <h1>{{ title }}</h1>
     <!--
     <div>
@@ -21,7 +21,7 @@
         -->
       </div>
     </transition>
-  </main>
+  </v-layout>
 </template>
 
 <style lang="stylus" scoped>
@@ -40,17 +40,24 @@
   export default {
     name: 'escalation-queue',
 
-    props: {
-      type: String
+    asyncData ({ store }) {
+      console.log('**** asyncData: Escalation....');
+      return store.dispatch('FETCH_ESCALATION_QUEUE')
     },
+
+//    computed: {
+//      displayedItems () {
+//        return this.$store.state.moderation.escalatedPosts
+//      },
+//    },
 
     data() {
       return {
         title: 'Escalation Queue - Moderation',
         transition: 'slide-right',
         displayedPage: Number(this.$store.state.route.params.page) || 1,
-        displayedItems: this.$store.getters.escalatedPosts,
-        xposts: [
+//        displayedItems: this.$store.getters.escalatedPosts,
+        displayedItems: [
           {
             "id": "1450518",
             "title": "PU: Vivamus vitae maximus nisl, sit amet congue magna - Id: 1450518",
@@ -90,7 +97,7 @@
         ]
       }
     },
-
+/*
     computed: {
       page() {
         return Number(this.$store.state.route.params.page) || 1
@@ -129,5 +136,6 @@
         console.log('loadItems: ', to, from);
       }
     },
+    */
   }
 </script>

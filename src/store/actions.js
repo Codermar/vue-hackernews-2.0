@@ -1,7 +1,8 @@
 import {
   fetchUser,
   fetchItems,
-  fetchIdsByType
+  fetchIdsByType,
+  fetchEscalatedPosts
 } from '../api'
 
 export default {
@@ -47,7 +48,9 @@ export default {
       : fetchUser(id).then(user => commit('SET_USER', { id, user }))
   },
 
-  FETCH_ESCALATION_QUEUE: () => {
-    return [];
+  FETCH_ESCALATION_QUEUE: ({ commit, state }) => {
+    console.log('   ** Action ** FETCH_ESCALATION_QUEUE:');
+    return fetchEscalatedPosts().then(posts => commit('SET_ESCALATION_QUEUE', { posts } ))
+    // return Promise.resolve([]);
   }
 }

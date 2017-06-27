@@ -18,6 +18,12 @@ export default {
   },
 
   SET_USER: (state, { id, user }) => {
-    Vue.set(state.users, id, user || false) /* false means user not found */
-  }
+    Vue.set(state.users, id, user || false)
+    /* false means user not found */
+  },
+
+  SET_ESCALATION_QUEUE: (state, { posts }) => {
+    console.log('   ++ Mutation +++ SET_ESCALATION_QUEUE: ');
+    Vue.set(state.moderation.escalatedPosts, { posts })
+  },
 }

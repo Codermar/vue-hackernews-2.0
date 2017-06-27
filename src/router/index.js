@@ -8,7 +8,8 @@ const createListView = id => () => import('../views/CreateListView').then(m => m
 const ItemView = () => import('../views/ItemView.vue')
 const UserView = () => import('../views/UserView.vue')
 const Dashboard = () => import('../views/Dashboard.vue')
-const Escalation = () => import('../views/Escalation.vue')
+const EscalationQueue = () => import('../views/Escalation-queue.vue')
+const ModerationQueue = () => import('../views/Moderation-queue.vue')
 
 export function createRouter () {
   return new Router({
@@ -16,9 +17,11 @@ export function createRouter () {
     scrollBehavior: () => ({ y: 0 }),
     routes: [
       { path: '/dashboard', component: Dashboard },
-      { path: '/escalation/queue', component: Escalation },
+      { path: '/moderation/queue', component: ModerationQueue },
+      { path: '/escalation/queue', component: EscalationQueue },
 
       { path: '/news/top/:page(\\d+)?', component: createListView('top') },
+      { path: '/news', redirect: '/news/top' },
       { path: '/news/new/:page(\\d+)?', component: createListView('new') },
       { path: '/news/show/:page(\\d+)?', component: createListView('show') },
       { path: '/news/ask/:page(\\d+)?', component: createListView('ask') },
