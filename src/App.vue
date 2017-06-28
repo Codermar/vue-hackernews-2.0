@@ -16,7 +16,7 @@
       </v-list>
     </v-navigation-drawer>
 
-    <v-toolbar class="black" light>
+    <v-toolbar class="black" light fixed>
       <v-btn icon light router to="/dashboard" class="apple-logo"></v-btn>
       <v-btn icon light @click.native.stop="drawer = !drawer">
         <v-icon>more_vert</v-icon>
@@ -88,17 +88,17 @@
 
     <v-footer :fixed="fixed" class="grey">
       <span>&copy; 2017</span>
-        <v-btn icon light @click.native.stop="drawer = !drawer"></v-btn>
-        <v-btn icon light @click.native.stop="miniVariant = !miniVariant">
-          <v-icon v-html="miniVariant ? 'chevron_right' : 'chevron_left'"></v-icon>
-        </v-btn>
-        <v-btn icon light @click.native.stop="clipped = !clipped">
-          <v-icon>web</v-icon>
-        </v-btn>
-        <v-btn icon light @click.native.stop="fixed = !fixed">
-          <v-icon>remove</v-icon>
-        </v-btn>
-        <v-spacer></v-spacer>
+      <v-btn icon light @click.native.stop="drawer = !drawer"></v-btn>
+      <v-btn icon light @click.native.stop="miniVariant = !miniVariant">
+        <v-icon v-html="miniVariant ? 'chevron_right' : 'chevron_left'"></v-icon>
+      </v-btn>
+      <v-btn icon light @click.native.stop="clipped = !clipped">
+        <v-icon>web</v-icon>
+      </v-btn>
+      <v-btn icon light @click.native.stop="fixed = !fixed">
+        <v-icon>remove</v-icon>
+      </v-btn>
+      <v-spacer></v-spacer>
     </v-footer>
   </v-app>
 </template>
