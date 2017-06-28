@@ -27,8 +27,10 @@
       </v-toolbar-items>
       <v-spacer></v-spacer>
       <v-toolbar-items>
-        <!--<v-toolbar-item to="/moderation/queue">Moderation</v-toolbar-item>-->
-        <!--<v-toolbar-item to="/escalation/queue">Escalation</v-toolbar-item>-->
+
+        <!--<v-toolbar-item router to="/moderation/queue">Moderation</v-toolbar-item>-->
+        <!--<v-toolbar-item router to="/escalation/queue">Escalation</v-toolbar-item>-->
+
         <v-toolbar-item @click.native.stop="rightDrawer = !rightDrawer">
           <v-btn light icon>Metrics
             <v-icon>view_module</v-icon>
@@ -41,8 +43,8 @@
           </v-btn>
           <v-list>
             <v-list-item v-for="(item, index) in dropdownMenus" v-bind:key="item.title">
-              <v-list-tile ripple href="/escalation/queue">
-                <v-list-tile-content router-link to="/escalation/queue">
+              <v-list-tile ripple router :to="item.path">
+                <v-list-tile-content>
                   <v-list-tile-title>{{ item.title }}</v-list-tile-title>
                 </v-list-tile-content>
 

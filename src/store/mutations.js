@@ -23,7 +23,7 @@ export default {
   },
 
   SET_ESCALATION_QUEUE: (state, { posts }) => {
-    console.log('   ++ Mutation +++ SET_ESCALATION_QUEUE: ');
-    Vue.set(state.moderation.escalatedPosts, { posts })
+    console.log('   ++ Mutation +++ SET_ESCALATION_QUEUE: ',  posts );
+    state.moderation.escalatedPosts = posts
   },
 }

@@ -51,6 +51,5 @@ export default {
   FETCH_ESCALATION_QUEUE: ({ commit, state }) => {
     console.log('   ** Action ** FETCH_ESCALATION_QUEUE:');
     return fetchEscalatedPosts().then(posts => commit('SET_ESCALATION_QUEUE', { posts } ))
-    // return Promise.resolve([]);
   }
 }
